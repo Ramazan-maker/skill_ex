@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2 class="mt-4 mb-4">Список курсов</h2>
+    <div class="row">
+      {% for course in courses %}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          {% if course.image %}
+          <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ course.title }}</h5>
+            <p class="card-text">{{ course.description }}</p>
+            <a href="#" class="btn btn-primary">Перейти к курсу</a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-md-12">
+        <p>Нет доступных курсов</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% if courses.has_other_pages %}
+    <ul class="pagination">
+      {% if courses.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page=1">&laquo;</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ courses.previous_page_number }}">{{ courses.previous_page_number }}</a></li>
+      {% endif %}
+      <li class="page-item active"><a class="page-link" href="?page={{ courses.number }}">{{ courses.number }}</a></li>
+      {% if courses.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ courses.next_page_number }}">{{ courses.next_page_number }}</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ courses.paginator.num_pages }}">&raquo;</a></li>
+      {% endif %}
+    </ul>
+    {% endif %}
+  </div>
+{% endblock %}

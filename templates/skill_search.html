@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block search %}
+  <h2>Поиск курсов</h2>
+  <form method="get">
+    <input type="text" name="q" placeholder="Введите запрос">
+    <button type="submit">Искать</button>
+  </form>
+
+  <h3>Найденные курсы:</h3>
+  <ul>
+    {% for course in courses %}
+      <li>{{ course.title }}</li>
+    {% empty %}
+      <li>Ничего не найдено</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+

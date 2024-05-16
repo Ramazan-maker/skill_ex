@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+  <div class="jumbotron">
+    <h1 class="display-4">Добро пожаловать на Skill Exchange!</h1>
+    <p class="lead">Обменивайтесь навыками и услугами с другими пользователями.</p>
+    <hr class="my-4">
+    <p>Выберите курс, который соответствует вашим интересам и начните обмениваться!</p>
+    <a class="btn btn-primary btn-lg" href="/course_list/" role="button">Список курсов</a>
+  </div>
+
+  <div class="row">
+    <!-- Карточки курсов, предметов и рейтинга -->
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Курсы по предметам</h5>
+          <p class="card-text">Выберите курс по интересующему вас предмету.</p>
+          <a href="#" class="btn btn-primary">Просмотреть курсы</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Курсы по рейтингу</h5>
+          <p class="card-text">Выберите популярные курсы с высоким рейтингом.</p>
+          <a href="#" class="btn btn-primary">Просмотреть курсы</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
